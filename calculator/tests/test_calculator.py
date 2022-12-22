@@ -7,7 +7,7 @@ FAILURE = 'Test Failed'
 
 
 class CalculatorTest(unittest.TestCase):
-  # SetUp metoda koja se pokrece prje svakog testa
+  # SetUp metoda koja se pokrece prije svakog testa
     def setUp(self):
         self.calc = Calculator()
 

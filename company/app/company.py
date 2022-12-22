@@ -17,10 +17,11 @@ class Employee:
 
   @property
   def email(self):
-    return f"{self.first_name}{self.last_name}@servalit.com"
+    return f"{self.first_name}{self.last_name}@servalit.com".lower()
 
   def raise_pay(self):
     self.pay = int(self.pay * self.pay_raise_amount)
+    return self.pay
 
   def can_be_promoted(self):
     return True if self.performace_score > 70 else False
