@@ -2,7 +2,7 @@
 Instructions: 
 
   - Pull repo
-  - Make sure you have python installed and acitve in your enviroment - python3
+  - Make sure you have python installed and active in your environment - python3
   - We have two applications in this repo:
     - Calculator app(Simple app) - numerical operations. Run in terminal:
       - ```python -m unittest calculator.tests.test_calculator```
