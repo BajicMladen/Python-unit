@@ -1,7 +1,11 @@
+
+# CompanyDatabaseError je custom exception klasa koja se korisi u skoro svim metodama
+# Trebalo bi definisati vise ovih klasa
 class CompanyDatabaseError(Exception):
+  print("Kerma najgori fudbaler!")
   pass
 
-
+# Employee klasa
 class Employee: 
   pay_raise_amount = 1.3 #const
 
@@ -26,7 +30,7 @@ class Employee:
   def can_be_promoted(self):
     return True if self.performace_score > 70 else False
 
-
+# Menadzer klasa koja nasledjuje Employee klasu
 class Manager(Employee):
 
   pay_raise_amount = 1.6 #const
@@ -35,14 +39,20 @@ class Manager(Employee):
     super().__init__(first_name, last_name, pay, performace_score)
     self.employees = employees
 
+  # Metoda koja za medzera vraca niz sa formatiranim informacijama o zaposlenima
   def list_employees(self):
     if len(self.employees) == 0:
       raise CompanyDatabaseError(f"There is no employees in db")
     else:
+      emp_list = []
       for employee in self.employees:
-        print(f"{employee.fullName} -- {employee.email}")
+        val = f"{employee.fullName} -- {employee.email}"
+        emp_list.append(val)
+        print(val)
+    return emp_list
+        
 
-
+  # Metoda koja dodaje novog zaposlenog u liste podredjenih
   def add_employee(self, employee):
     if type(employee) is not Employee:
       raise TypeError("Please provide correct instance of employee")
@@ -52,6 +62,7 @@ class Manager(Employee):
       else:
         self.employees.append(employee)
 
+  # Metoda koja otklanja zaposlenog u lliste podredjenih
   def remove_employee(self, employee):
     if self.employees == []:
       raise CompanyDatabaseError(f"This manager has no employees under him in hierarcy")
